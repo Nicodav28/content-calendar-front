@@ -87,6 +87,9 @@
             },
             "development": {
               "buildTarget": "content-calendar-front:build:development"
+            },
+            "local": {
+              "buildTarget": "content-calendar-front:build:local"
             }
           },
           "defaultConfiguration": "development"
