@@ -1,0 +1,53 @@
+$default-color-text: #333333;
+$default-color-text-red: #ff4040;
+$border-color: #e5e5e5;
+$border-width: 3px;
+
+$last-positions: 36,
+37,
+38,
+39,
+40,
+41,
+42;
+
+
+.calendar-container {
+  padding-bottom: 3rem;
+
+  .calendar-content {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    .calendar-header {
+      padding: 0.25rem;
+      text-align: center;
+      color: $default-color-text;
+
+      &:first-of-type {
+        color: $default-color-text-red
+      }
+    }
+
+    .calendar-body {
+      min-height: 6rem;
+      border-top: $border-width solid $border-color;
+      border-left: $border-width solid $border-color;
+      padding: 0.25rem;
+
+      &:nth-of-type(7n) {
+        border-right: $border-width solid $border-color;
+      }
+
+      @each $el in $last-positions {
+        &:nth-of-type(#{$el}) {
+          border-bottom: $border-width solid $border-color;
+        }
+      }
+
+      span {
+        color: $default-color-text;
+      }
+    }
+  }
+}

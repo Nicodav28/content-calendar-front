@@ -1,1 +1,15 @@
-<p>calendar works!</p>
+<section class="calendar-container">
+  <button mat-button color="primary" (click)="openDialog()">
+    Agregar Evento
+  </button>
+
+  <article class="calendar-content">
+    @for(header of headers; track header){
+    <span class="calendar-header">{{ header }}</span>
+    } @for(element of calendarElements; track element){
+    <div class="calendar-body">
+      <span>{{ element }}</span>
+    </div>
+    }
+  </article>
+</section>
