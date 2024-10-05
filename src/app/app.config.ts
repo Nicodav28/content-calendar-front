@@ -6,7 +6,6 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 import { provideAuth0 } from '@auth0/auth0-angular';
-import { environment } from '../environments/environment';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,7 +17,7 @@ export const appConfig: ApplicationConfig = {
       domain: 'dev-wm1e6hq7phdylrwq.us.auth0.com',
       clientId: 'BTz8TAC8sCNdaBTg7mAeQDOW677jqKVB',
       authorizationParams: {
-        redirect_uri: environment.auth0_redir_uri,
+        redirect_uri: 'http://localhost:4200',
       },
     }),
   ],
