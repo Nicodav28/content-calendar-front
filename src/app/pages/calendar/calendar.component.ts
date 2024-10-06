@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, effect } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { NCalendar } from '../../model/calendar.model';
 import { CommonModule } from '@angular/common';
+import { DialogService } from '../../services/dialog.service';
 
 @Component({
   selector: 'app-calendar',
@@ -27,8 +28,13 @@ export class CalendarComponent {
 
   public calendarElements: NCalendar.Body[] = [];
 
-  public constructor() {
+  public constructor(private readonly dialogService: DialogService) {
     this.createCalendarData();
+    effect(() => {
+      if (this.dialogService.getEvent) {
+        this.createEvent(this.dialogService.getEvent);
+      }
+    });
   }
 
   private getDaysInMonth(year: number, month: number): number {
@@ -99,6 +105,8 @@ export class CalendarComponent {
   private isCurrentDay(todayDate: string, comparisonDate: string): boolean {
     return todayDate === comparisonDate;
   }
+
+  public createEvent(item: NCalendar.IEvent) {}
 
   public openDialog() {
     console.log('asd');
