@@ -7,8 +7,14 @@
     @for(header of headers; track header){
     <span class="calendar-header">{{ header }}</span>
     } @for(element of calendarElements; track element){
-    <div class="calendar-body">
-      <span>{{ element }}</span>
+    <div
+      class="calendar-body"
+      [ngClass]="[
+        element.isCurrentMonth ? 'current-month' : '',
+        element.isCurrentDay ? 'current-day' : ''
+      ]"
+    >
+      <span>{{ element.day }}</span>
     </div>
     }
   </article>

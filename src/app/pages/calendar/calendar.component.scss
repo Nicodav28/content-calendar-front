@@ -35,6 +35,31 @@ $last-positions: 36,
       border-left: $border-width solid $border-color;
       padding: 0.25rem;
 
+      &:not(.current-month) {
+        &:nth-of-type(7n+1) {
+          span {
+            color: #ff404066
+          }
+        }
+
+        span {
+          color: #33333366;
+        }
+      }
+
+      &.current-day {
+        span {
+          width: 1.7rem;
+          height: 1.7rem;
+          border-radius: 50%;
+          background-color: #135de6;
+          padding: 0.25rem;
+          display: grid;
+          place-content: center;
+          color: white !important;
+        }
+      }
+
       &:nth-of-type(7n) {
         border-right: $border-width solid $border-color;
       }
@@ -48,6 +73,13 @@ $last-positions: 36,
       span {
         color: $default-color-text;
       }
+
+      &:nth-of-type(7n + 1) {
+        span {
+          color: $default-color-text-red;
+        }
+      }
+
     }
   }
 }
